@@ -126,5 +126,26 @@ chart_combined_p2
 
 st.write("## Location and Seasonal Pattern in Head Injuries")
 ## Demographic factors
-# select race and Sex through drop-down
+# multiselectors for locations and year
+locations = st.multiselect(
+    "Locations",
+     neiss['Race'].unique(),
+     neiss['Race'].unique()
+)
+year = st.selectbox(
+    "Year",
+    [2022, 2023],
+)
+subset_p3 = neiss[neiss["Location"].isin(locations) & neiss["Year"]==year]
 
+months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+
+chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
+    x=alt.X("Month:N", sort=months),
+    y=alt.Y("Location:N"),
+    color=alt.Color("Disposition:Q",  
+                    title="Severity Score of Injury"),
+    tooltip=["Disposition"],
+).properties(
+    title="Locational Injury Pattern Across the Year {year}",
+)
