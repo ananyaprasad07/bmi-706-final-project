@@ -5,7 +5,7 @@ import streamlit as st
 
 neiss = pd.read_csv('neiss_head_injuries.tsv', sep='\t')
 
-st.write("Head Injuries Across the United States")
+st.write("## Head Injuries Across the United States")
 
 ## Products vs Injury Severity Graph ##
 
@@ -37,7 +37,7 @@ selector=alt.selection_single(fields=['Disposition'], bind='legend')
 
 # stacked bar chart of injuries
 chart = alt.Chart(subset).mark_bar().encode(
-    x=alt.X("Product:O", title="", axis=alt.Axis(labelAngle=90, labelLimit=500)),
+    x=alt.X("Product:O", title="Product", axis=alt.Axis(labelLimit=500)),
     y=alt.Y("count():Q", title="Number of Injuries"),
     color=alt.Color('Disposition:O', title='Disposition', 
                     scale=alt.Scale(scheme='reds'), 
