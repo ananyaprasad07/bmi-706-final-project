@@ -9,7 +9,7 @@ st.write("Head Injuries Across the United States")
 
 default_products = []
 products = st.multiselect("Products", options=list(neiss["Product_1"].unique()), default=default_products)
-subset = neiss[neiss["Products"].isin(products)]
+subset = neiss[neiss["Product_1"].isin(products)]
 
 chart = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Product_1:O", title="Product Type"),
