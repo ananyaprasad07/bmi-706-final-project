@@ -12,7 +12,7 @@ top_products = neiss_products['Product_1'].value_counts().nlargest(20).index
 neiss_products = neiss_products[neiss_products['Product_1'].isin(top_products)]
 
 
-default_products = ['FLOORS OR FLOORING MATERIALS ', 
+default_products = ['FLOORS OR FLOORING MATERIALS', 
                     'BASKETBALL, ACTIVITY AND RELATED EQUIPMENT', 
                     'SOFAS, COUCHES, DAVENPORTS, DIVANS OR STUDIO COUCHES']
 
