@@ -24,7 +24,7 @@ chart = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Product_1:O", title="Product Type"),
     y=alt.Y("count():Q", title="Number of Injuries"),
     color=alt.Color('Disposition:O', title='Disposition', scale=alt.Scale(scheme='reds'), legend=alt.Legend(title="Disposition")),
-    tooltip=["Disposition", "Product_1"]
+    tooltip=["Disposition", "Product_1", "count():Q"]
 ).properties(
     title='Head Injury Severity by Product',
     width=600,
