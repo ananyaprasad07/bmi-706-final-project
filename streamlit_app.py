@@ -138,7 +138,10 @@ year = st.selectbox(
 )
 subset_p3 = neiss[neiss["Location"].isin(locations) & neiss["Year"]==year]
 
-months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+months = ["Jan", "Feb", "Mar", "Apr", 
+          "May", "Jun", "Jul", "Aug", 
+          "Sep", "Oct", "Nov", "Dec"
+          ]
 
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
     x=alt.X("Month:N", sort=months),
