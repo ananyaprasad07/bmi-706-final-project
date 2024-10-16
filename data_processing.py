@@ -72,6 +72,11 @@ disposition_codes_2 = {1.0: 1, 2.0: 2, 4.0: 3,
 neiss['Disposition'] = neiss['Disposition'].replace(disposition_codes_2)
 neiss['Disposition'] = neiss['Disposition'].astype(int)
 
+#create age group
+age_bins = [0, 4, 14, 24, 34, 44, 54, 64, float('inf')]
+age_labels = ["Age <5", "Age 5-14", "Age 15-24", "Age 25-34", "Age 35-44", "Age 45-54", "Age 55-64", "Age >64"]
+neiss['Age_group'] = pd.cut(neiss['Age'], bins=age_bins, labels=age_labels, right=True)
+
 # write to data file
 neiss.to_csv('neiss_head_injuries.tsv', sep='\t', index=False)
 
