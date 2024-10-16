@@ -42,7 +42,8 @@ chart = alt.Chart(subset).mark_bar().encode(
     color=alt.Color('Disposition:O', title='Disposition', 
                     scale=alt.Scale(scheme='reds'), 
                     legend=alt.Legend(title="Disposition", labelExpr=label)),
-    tooltip=["Disposition", "Product",  "count():Q"]
+    tooltip=[alt.Tooltip('Product'), alt.Tooltip('Disposition'), alt.Tooltip('count():Q', title='# of injuries')]
+).add_selection(
 ).add_selection(
     selector
 ).transform_filter(
