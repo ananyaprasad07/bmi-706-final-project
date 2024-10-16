@@ -12,12 +12,13 @@ top_products = neiss_products['Product_1'].value_counts().nlargest(20).index
 neiss_products = neiss_products[neiss_products['Product_1'].isin(top_products)]
 
 
+
 default_products = ['FLOORS OR FLOORING MATERIALS', 
                     'BASKETBALL, ACTIVITY AND RELATED EQUIPMENT', 
                     'SOFAS, COUCHES, DAVENPORTS, DIVANS OR STUDIO COUCHES']
 
-products = st.multiselect("Products", options=list(neiss["Product_1"].unique()), default=default_products)
-subset = neiss[neiss_products["Product_1"].isin(products)]
+products = st.multiselect("Products", options=list(neiss_products["Product_1"].unique()), default=default_products)
+subset = neiss_products[neiss_products["Product_1"].isin(products)]
 
 chart = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Product_1:O", title="Product Type"),
