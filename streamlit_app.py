@@ -32,6 +32,9 @@ label = "if(datum.value == 1, '1: Treated, Released', " \
              "if(datum.value == 5, '5: Left Against Medical Advice', " \
              "'6: Death')))))"
 
+# legend selector
+selector=alt.selection_single(fields=['Disposition'], bind='legend')
+
 # stacked bar chart of injuries
 chart = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Product:O", title="", axis=alt.Axis(labelAngle=90, labelLimit=500)),
@@ -40,6 +43,10 @@ chart = alt.Chart(subset).mark_bar().encode(
                     scale=alt.Scale(scheme='reds'), 
                     legend=alt.Legend(title="Disposition", labelExpr=label)),
     tooltip=["Disposition", "Product",  "count():Q"]
+).add_selection(
+    selector
+).transform_filter(
+    selector
 ).properties(
     title='Head Injury Severity by Product',
 )
