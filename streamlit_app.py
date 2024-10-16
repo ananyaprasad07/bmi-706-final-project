@@ -53,3 +53,78 @@ chart = alt.Chart(subset).mark_bar().encode(
 )
 
 st.altair_chart(chart, use_container_width=True)
+
+st.write("## Impact of Demographic factors in Head Injuries")
+
+## Demographic factors
+# select race through drop-down
+race =  st.selectbox(
+    "Race",
+    neiss['Race'].unique(),
+)
+subset_p2 =  neiss[(neiss['Race'] == race)]
+
+ages = [
+    "Age <5",
+    "Age 5-14",
+    "Age 15-24",
+    "Age 25-34",
+    "Age 35-44",
+    "Age 45-54",
+    "Age 55-64",
+    "Age >64",
+]
+
+grouped_data = subset_p2(['Age_group', 'Sex']).size().reset_index(
+    name='Count')
+
+chart_p2 = alt.Chart(grouped_data).mark_bar().encode(
+    x=alt.X('Age_group:N', title='Age Group'),
+    y=alt.Y('Count:Q', title='Number of Head Injuries'),
+    color=alt.Color('Sex:N', legend=alt.Legend(title="Sex")), 
+    tooltip=['age_group:N', 'sex:N', 'count:Q']
+).properties(
+    title="Number of Head Injuries by Age Group and Sex",
+    width=600,
+    height=400
+)
+
+gender_counts = neiss.groupby('Sex').size().reset_index(name='Count')
+gender_donut = alt.Chart(gender_counts).mark_arc(innerRadius=50).encode(
+    theta=alt.Theta(field='Count', type='quantitative'),
+    color=alt.Color(field='Sex', type='nominal', legend=alt.Legend(title="Sex")),
+    tooltip=['Sex', 'Count']
+).properties(
+    title="Head Injuries by Gender",
+    width=300,
+    height=300
+)
+
+
+age_group_counts = neiss.groupby('Age_group').size().reset_index(name='Count')
+age_group_donut = alt.Chart(age_group_counts).mark_arc(innerRadius=50).encode(
+    theta=alt.Theta(field='Count', type='quantitative'),
+    color=alt.Color(field='Age_group', type='nominal', legend=alt.Legend(title="Age Group")),
+    tooltip=['Age_group', 'Count']
+).properties(
+    title="Head Injuries by Age Group",
+    width=300,
+    height=300
+)
+
+donut = alt.hconcat(gender_donut, age_group_donut).resolve_scale(
+    # two donut charts should use different color schema
+    color='independent'
+)
+
+chart_combined_p2 = alt.vconcat(chart_p2, donut
+).resolve_scale(
+    color='independent'
+)
+
+chart_combined_p2
+
+st.write("## Location and Seasonal Pattern in Head Injuries")
+## Demographic factors
+# select race and Sex through drop-down
+
