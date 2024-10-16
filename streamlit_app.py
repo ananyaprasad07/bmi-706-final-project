@@ -8,7 +8,7 @@ st.write("Injury Severity by Product")
 
 default_products = []
 products = st.multiselect("Products", options=list(neiss["Product_1"].unique()), default=default_products)
-subset = neiss[neiss["Products"].isin(products)]
+subset = neiss[neiss["Product_1"].isin(products)]
 
 chart_product = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Product_1", title="Product Type"),
