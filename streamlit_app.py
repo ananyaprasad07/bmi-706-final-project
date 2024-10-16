@@ -40,8 +40,8 @@ chart = alt.Chart(subset).mark_bar().encode(
     tooltip=["Disposition", "Product_1",  "count():Q"]
 ).properties(
     title='Head Injury Severity by Product',
-    width=600,
-    height=400
+    width=1000,
+    height=600
 )
 
 st.altair_chart(chart, use_container_width=True)
