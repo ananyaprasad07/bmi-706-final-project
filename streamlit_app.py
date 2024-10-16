@@ -23,12 +23,12 @@ products = st.multiselect("Products", options=list(neiss_products["Product_1"].u
 subset = neiss_products[neiss_products["Product_1"].isin(products)]
 
 # labels for legend
-label = "if(datum.value == 1, 'Treated, Released', " \
-             "if(datum.value == 2, 'Treated, Tranferred', " \
-             "if(datum.value == 3, 'Treated, Admitted', " \
-             "if(datum.value == 4, 'Held', " \
-             "if(datum.value == 5, 'Left Against Medical Advice', " \
-             "'Death')))))"
+label = "if(datum.value == 1, '1: Treated, Released', " \
+             "if(datum.value == 2, '2: Treated, Tranferred', " \
+             "if(datum.value == 3, '3: Treated, Admitted', " \
+             "if(datum.value == 4, '4: Held', " \
+             "if(datum.value == 5, '5: Left Against Medical Advice', " \
+             "'6: Death')))))"
 
 # stacked bar chart of injuries
 chart = alt.Chart(subset).mark_bar().encode(
