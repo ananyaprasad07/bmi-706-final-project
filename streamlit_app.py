@@ -32,7 +32,7 @@ label = "if(datum.value == 1, '1: Treated, Released', " \
 
 # stacked bar chart of injuries
 chart = alt.Chart(subset).mark_bar().encode(
-    x=alt.X("Product_1:O", title="Product Type"),
+    x=alt.X("Product_1:O", title="Product Type", axis=alt.Axis(labelAngle=-45, labelLimit=200)),
     y=alt.Y("count():Q", title="Number of Injuries"),
     color=alt.Color('Disposition:O', title='Disposition', 
                     scale=alt.Scale(scheme='reds'), 
