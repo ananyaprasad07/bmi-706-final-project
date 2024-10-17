@@ -135,7 +135,7 @@ year = st.selectbox(
     "Year",
     [2022, 2023],
 )
-subset_p3 = neiss[neiss["Location"].isin(locations) & neiss["Year"]==year]
+subset_p3 = neiss[(neiss["Location"].isin(locations) & neiss["Year"]==year)]
 
 months = ["Jan", "Feb", "Mar", "Apr", 
           "May", "Jun", "Jul", "Aug", 
