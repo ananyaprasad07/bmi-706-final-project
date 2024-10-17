@@ -141,16 +141,34 @@ months = ["Jan", "Feb", "Mar", "Apr",
           "May", "Jun", "Jul", "Aug",
           "Sep", "Oct", "Nov", "Dec"] 
 
+disposition_domain = [1, 2, 3, 4, 5, 6]
+disposition_labels = [
+    'Treated, Released',
+    'Treated, Transferred',
+    'Treated, Admitted',
+    'Held',
+    'Left Against Medical Advice',
+    'Other'
+]
+
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
-    x=alt.X("Month:N",sort=months),
+    x=alt.X("Month:N", sort=months),
     y=alt.Y("Location:N"),
-    color=alt.Color("Disposition:Q", title="Severity Score of Injury", 
-                    legend=alt.Legend(title="Disposition", labelExpr=label),
-                    scale=alt.Scale(domain=[1, 2, 3, 4, 5, 6]))
-,
-    tooltip=["Disposition"],
+    color=alt.Color(
+        "Disposition:Q",
+        title="Severity Score of Injury",
+        scale=alt.Scale(
+            domain=disposition_domain,   # Explicitly set the domain (numbers 1 to 6)
+            range=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']  # Custom color scheme, optional
+        ),
+        legend=alt.Legend(
+            values=disposition_domain,  # Ensure all numbers appear in the legend
+            labelExpr="{'1': 'Treated, Released', '2': 'Treated, Transferred', '3': 'Treated, Admitted', '4': 'Held', '5': 'Left Against Medical Advice', '6': 'Other'}[datum.label]"  # Custom labels
+        )
+    ),
+    tooltip=["Disposition:N"]  # Tooltip shows the raw Disposition values
 ).properties(
-    title="Locational Injury Pattern Across the Year",
+    title="Locational Injury Pattern Across the Year"
 )
 
 st.altair_chart(chart_p3)
