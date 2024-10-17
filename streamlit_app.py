@@ -74,7 +74,7 @@ chart_combined_p2 = alt.vconcat(chart_p2, donut
 st.altair_chart(chart_combined_p2)
 
 
-st.write("## Head Injuries Across the United States")
+st.write("## Head injury-causing Products")
 ## Products vs Injury Severity Graph ##
 
 # subseting to required data
@@ -108,7 +108,7 @@ chart = alt.Chart(subset).mark_bar().encode(
     x=alt.X("Product:O", title="Product", axis=alt.Axis(labelLimit=500)),
     y=alt.Y("count():Q", title="Number of Injuries"),
     color=alt.Color('Disposition:O', title='Disposition', 
-                    scale=alt.Scale(scheme='reds'), 
+                    scale=alt.Scale(scheme='greens'), 
                     legend=alt.Legend(title="Disposition", labelExpr=label)),
     tooltip=[alt.Tooltip('Product'), alt.Tooltip('Disposition'), alt.Tooltip('count():Q', title='# of injuries')]
 ).add_selection(
