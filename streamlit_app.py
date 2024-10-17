@@ -162,11 +162,10 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
             range=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']  # Custom color scheme, optional
         ),
         legend=alt.Legend(
-            values=disposition_domain,  # Ensure all numbers appear in the legend
-            labelExpr="{'1': 'Treated, Released', '2': 'Treated, Transferred', '3': 'Treated, Admitted', '4': 'Held', '5': 'Left Against Medical Advice', '6': 'Other'}[datum.label]"  # Custom labels
+            values=disposition_domain
         )
     ),
-    tooltip=["Disposition:N"]  # Tooltip shows the raw Disposition values
+    tooltip=["Disposition:N"]  
 ).properties(
     title="Locational Injury Pattern Across the Year"
 )
