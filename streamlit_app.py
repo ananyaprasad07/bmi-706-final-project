@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 st.write("# Characterizing Head Injuries in NEISS")
-st.write("##")
+st.write("")
 neiss = pd.read_csv('neiss_head_injuries.tsv', sep='\t')
 
 st.write("## Demographics of Head Injuries")
