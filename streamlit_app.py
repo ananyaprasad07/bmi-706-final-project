@@ -75,8 +75,7 @@ ages = [
     "Age >64",
 ]
 
-grouped_data = subset_p2(['Age_group', 'Sex']).size().reset_index(
-    name='Count')
+grouped_data = subset_p2.groupby(['Age_group', 'Sex']).size().reset_index(name='Count')
 
 chart_p2 = alt.Chart(grouped_data).mark_bar().encode(
     x=alt.X('Age_group:N', title='Age Group'),
@@ -122,7 +121,7 @@ chart_combined_p2 = alt.vconcat(chart_p2, donut
     color='independent'
 )
 
-chart_combined_p2
+st.altair_chart(chart_combined_p2)
 
 st.write("## Location and Seasonal Pattern in Head Injuries")
 ## Demographic factors
@@ -152,3 +151,5 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
 ).properties(
     title="Locational Injury Pattern Across the Year {year}",
 )
+
+st.altair_chart(chart_p3)
