@@ -148,7 +148,7 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
                     title="Severity Score of Injury"),
     tooltip=["Disposition"],
 ).properties(
-    title="Locational Injury Pattern Across the Year" {year},
+    title="Locational Injury Pattern Across the Year",
 )
 
 st.altair_chart(chart_p3)
