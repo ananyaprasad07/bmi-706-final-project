@@ -146,7 +146,7 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
     y=alt.Y("Location:N"),
     color=alt.Color("Disposition:Q", title="Severity Score of Injury", 
                     legend=alt.Legend(title="Disposition", labelExpr=label),
-                    scale=alt.Scale(domain=[1, 6]))
+                    scale=alt.Scale(domain=[1, 2, 3, 4, 5, 6]))
 ,
     tooltip=["Disposition"],
 ).properties(
