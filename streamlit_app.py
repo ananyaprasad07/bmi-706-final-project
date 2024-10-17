@@ -136,13 +136,8 @@ year = st.selectbox(
 )
 subset_p3 = neiss[(neiss["Location"].isin(locations) & neiss["Year"]==year)]
 
-months = ["Jan", "Feb", "Mar", "Apr", 
-          "May", "Jun", "Jul", "Aug", 
-          "Sep", "Oct", "Nov", "Dec"
-          ]
-
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
-    x=alt.X("Month:N", sort=months),
+    x=alt.X("Month:N"),
     y=alt.Y("Location:N"),
     color=alt.Color("Disposition:Q",  
                     title="Severity Score of Injury"),
