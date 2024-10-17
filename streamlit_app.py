@@ -135,10 +135,16 @@ year = st.selectbox(
     neiss['Year'].unique()
 )
 subset_p3 = neiss[neiss["Location"].isin(locations)]
-subset_p3 = neiss[neiss["Year"]==year]
+subset_p3 = subset_p3[subset_p3["Year"]==year]
+
+months = ["Jan", "Feb", "Mar", "Apr",
+          "May", "Jun", "Jul", "Aug",
+          "Sep", "Oct", "Nov", "Dec"] 
+
+
 
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
-    x=alt.X("Month:N"),
+    x=alt.X("Month:N",sort=months),
     y=alt.Y("Location:N"),
     color=alt.Color("Disposition:Q", title="Severity Score of Injury", 
                           scale=alt.Scale(domain=[1, 6]))
@@ -148,4 +154,12 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
     title="Locational Injury Pattern Across the Year",
 )
 
-st.altair_chart(chart_p3)
+st.altair_chart(chart_p3
+
+label = "if(datum.value == 1, '1: Treated, Released', " \
+             "if(datum.value == 2, '2: Treated, Tranferred', " \
+             "if(datum.value == 3, '3: Treated, Admitted', " \
+             "if(datum.value == 4, '4: Held', " \
+             "if(datum.value == 5, '5: Left Against Medical Advice', " \
+             "'6: Death')))))"
+
