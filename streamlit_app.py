@@ -141,26 +141,13 @@ months = ["Jan", "Feb", "Mar", "Apr",
           "May", "Jun", "Jul", "Aug",
           "Sep", "Oct", "Nov", "Dec"] 
 
-disposition_mapping = {
-    1: 'Treated, Released',
-    2: 'Treated, Transferred',
-    3: 'Treated, Admitted',
-    4: 'Held',
-    5: 'Left Against Medical Advice',
-    6: 'Dead'  
-}
 
-chart_p3 = alt.Chart(subset_p3).transform_calculate(
-    Disposition_Label=f"datum.Disposition == 1 ? '{disposition_mapping[1]}' : "
-                      f"datum.Disposition == 2 ? '{disposition_mapping[2]}' : "
-                      f"datum.Disposition == 3 ? '{disposition_mapping[3]}' : "
-                      f"datum.Disposition == 4 ? '{disposition_mapping[4]}' : "
-                      f"datum.Disposition == 5 ? '{disposition_mapping[5]}' : "
-).mark_rect().encode(
+chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
     x=alt.X("Month:N",sort=months),
     y=alt.Y("Location:N"),
-    color=alt.Color("Disposition_Label:N", title="Severity Score of Injury", 
-                          scale=alt.Scale(domain=[1, 6]))
+    color=alt.Color("Disposition: Q", title="Severity Score of Injury", 
+                          scale=alt.Scale(domain=[1, 6]),
+                   legend=alt.Legend(title="Disposition", labelExpr=label))
 ,
     tooltip=["Disposition_Label:N"],
 ).properties(
