@@ -128,8 +128,8 @@ st.write("## Location and Seasonal Pattern in Head Injuries")
 # multiselectors for locations and year
 locations = st.multiselect(
     "Locations",
-     neiss['Race'].unique(),
-     neiss['Race'].unique()
+     neiss['Locations'].unique(),
+     neiss['Locations'].unique()
 )
 year = st.selectbox(
     "Year",
