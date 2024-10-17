@@ -7,7 +7,7 @@ neiss2023 = pd.read_csv('neiss2023.tsv', sep='\t')
 #fixing column name disparities
 neiss2023.rename(columns={'Gender': 'Sex'}, inplace=True)
 
-# concatnating both years
+# concatenating both years
 neiss_pre = pd.concat([neiss2022, neiss2023], axis=0)
 
 # keeping relevant columns
