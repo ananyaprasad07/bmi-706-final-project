@@ -1,5 +1,8 @@
 # Visualizing Head Injuries across the United States
 
+#### Authors
+Ananya Prasad, Lanxin Zhang
+
 ## Description
 This data visualization project is for the BMI 706 Final Project
 
@@ -20,7 +23,19 @@ If you wish to recreate `neiss_head_injuries.tsv` , follow the below steps, if n
 This is the file we used for our visualizations
 
 ## Details
-BMI 706 Final Project
 
-## Authors
-Ananya Prasad, Lanxin Zhang
+### Impact of Demographic factors in Head Injuries
+This graph depicts _____
+How to use:
+
+### Head Injury Severity by Product
+This graph depicts _____
+how to use
+
+### Location and Seasonal Pattern in Head Injuries
+This graph depicts _____
+how to use
+
+
+
+
