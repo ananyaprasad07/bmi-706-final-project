@@ -28,7 +28,7 @@ ages = [
 grouped_data = subset_p2.groupby(['Age_group', 'Sex']).size().reset_index(name='Count')
 
 chart_p2 = alt.Chart(grouped_data).mark_bar().encode(
-    x=alt.X('Age_group:N', title='Age Group'),
+    x=alt.X('Age_group:N', title='Age Group', sort=ages),
     y=alt.Y('Count:Q', title='Number of Head Injuries'),
     color=alt.Color('Sex:N', legend=alt.Legend(title="Sex")), 
     tooltip=['Age_group', 'Sex', 'Count:Q']
@@ -161,7 +161,10 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
             domain=disposition_domain
         ),
         legend=alt.Legend(
-            values=disposition_domain
+            values=disposition_domain,
+            labelExpr="{'1': 'Treated, Released', '2': 'Treated, Transferred', 
+                        '3': 'Treated, Admitted', '4': 'Held', 
+                        '5': 'Left Against Medical Advice', '6': 'Other'}[datum.label]"
         )
     ),
     tooltip=["Disposition:N"]  
