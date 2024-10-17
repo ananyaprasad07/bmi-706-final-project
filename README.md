@@ -51,7 +51,10 @@ This graph answers the question: "Are there any location based or seasonal patte
 
 How to use:
 1. Select the locations and year you wish to visualize
-2. Hover over the any aspect of the graph to know the disposition 
+2. Hover over the any aspect of the graph to know the disposition
+
+## Streamlit App
+[Application] (https://bmi-706-final-project-kxf4q4stzcdahq2ptdrugy.streamlit.app/)
 
 
 
