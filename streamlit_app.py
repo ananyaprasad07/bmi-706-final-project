@@ -158,7 +158,14 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
         "Disposition:Q",
         title="Severity Score of Injury",
         scale=alt.Scale(
-            domain=disposition_domain
+            domain=disposition_domain,
+             range=[
+                '#ffcccc',  
+                '#ff9999', 
+                '#ff6666',  
+                '#ff3333',  
+                '#cc0000',  
+                '#990000' ]
         ),
     legend=alt.Legend(
             values=disposition_domain, 
