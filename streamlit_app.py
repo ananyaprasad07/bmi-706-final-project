@@ -148,7 +148,7 @@ disposition_labels = [
     'Treated, Admitted',
     'Held',
     'Left Against Medical Advice',
-    'Other'
+    'Dead'
 ]
 
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
@@ -158,8 +158,7 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
         "Disposition:Q",
         title="Severity Score of Injury",
         scale=alt.Scale(
-            domain=disposition_domain,   # Explicitly set the domain (numbers 1 to 6)
-            range=['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']  # Custom color scheme, optional
+            domain=disposition_domain
         ),
         legend=alt.Legend(
             values=disposition_domain
