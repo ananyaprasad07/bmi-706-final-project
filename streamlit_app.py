@@ -76,6 +76,7 @@ chart_combined_p2 = alt.vconcat(chart_p2, donut
 st.altair_chart(chart_combined_p2)
 
 st.write("")
+st.write("")
 st.write("## Head injury-causing Products")
 ## Products vs Injury Severity Graph ##
 
@@ -124,6 +125,7 @@ chart = alt.Chart(subset).mark_bar().encode(
 
 st.altair_chart(chart, use_container_width=True)
 
+st.write("")
 st.write("")
 st.write("## Location and Seasonal Patterns in Head Injuries")
 ## Demographic factors
