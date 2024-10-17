@@ -53,7 +53,10 @@ neiss['Product_1'] = neiss['Product_1'].replace(product_codes)
 # add a year and month column
 neiss['Treatment_Date'] = pd.to_datetime(neiss['Treatment_Date'], format='%m/%d/%Y')
 neiss['Year'] = neiss['Treatment_Date'].dt.year
-neiss['Month'] = neiss['Treatment_Date'].dt.month.apply(lambda x: calendar.month_abbr[x])
+neiss['Month'] = neiss['Treatment_Date'].dt.month
+month_map = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 
+             7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'}
+neiss['Month'] = neiss['Month'].map(month_map)
 
 
 # naming the disposition
