@@ -162,7 +162,7 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
         ),
     legend=alt.Legend(
             values=disposition_domain, 
-            labelExpr="{'1': 'Treated, Released', '2': 'Treated, Transferred', '3': 'Treated, Admitted', '4': 'Held', '5': 'Left Against Medical Advice', '6': 'Other'}[datum.label]"  # Custom labels
+            labelExpr="{'1': '1 Treated, Released', '2': '2 Treated, Transferred', '3': ' 3 Treated, Admitted', '4': '4 Held', '5': '5 Left Against Medical Advice', '6': '6 Dead'}[datum.label]"  
         )
     ),
     tooltip=["Disposition:N"]  
