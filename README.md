@@ -1,5 +1,8 @@
 # Visualizing Head Injuries across the United States
 
+## Description
+This data visualization project is for the BMI 706 Final Project
+
 ## Intructions
 ### Data files
 1. `neiss_head_injuries.tsv`
