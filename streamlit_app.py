@@ -4,7 +4,7 @@ import streamlit as st
 
 neiss = pd.read_csv('neiss_head_injuries.tsv', sep='\t')
 
-st.write("## Impact of Demographic factors in Head Injuries")
+st.write("## Demographics of Head Injuries")
 
 ## Demographic factors
 # select race through drop-down
@@ -122,7 +122,7 @@ chart = alt.Chart(subset).mark_bar().encode(
 
 st.altair_chart(chart, use_container_width=True)
 
-st.write("## Location and Seasonal Pattern in Head Injuries")
+st.write("## Location and Seasonal Patterns in Head Injuries")
 ## Demographic factors
 # multiselectors for locations and year
 locations = st.multiselect(
