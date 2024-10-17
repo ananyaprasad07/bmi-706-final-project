@@ -54,7 +54,7 @@ How to use:
 2. Hover over the any aspect of the graph to know the disposition
 
 ## Streamlit App
-[Application] (https://bmi-706-final-project-kxf4q4stzcdahq2ptdrugy.streamlit.app/)
+[Application](https://bmi-706-final-project-kxf4q4stzcdahq2ptdrugy.streamlit.app/)
 
 
 
