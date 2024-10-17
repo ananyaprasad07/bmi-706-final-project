@@ -132,9 +132,10 @@ locations = st.multiselect(
 )
 year = st.selectbox(
     "Year",
-    neiss['Year'].unique(),
+    neiss['Year'].unique()
 )
-subset_p3 = neiss[(neiss["Location"].isin(locations) & neiss["Year"]==year)]
+subset_p3 = neiss[neiss["Location"].isin(locations)]
+subset_p3 = neiss[neiss["Year"]==year]
 
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
     x=alt.X("Month:N"),
