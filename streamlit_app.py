@@ -80,7 +80,7 @@ chart_p2 = alt.Chart(grouped_data).mark_bar().encode(
     x=alt.X('Age_group:N', title='Age Group'),
     y=alt.Y('Count:Q', title='Number of Head Injuries'),
     color=alt.Color('Sex:N', legend=alt.Legend(title="Sex")), 
-    tooltip=['age_group:N', 'sex:N', 'count:Q']
+    tooltip=['Age_group', 'Sex', 'Count:Q']
 ).properties(
     title="Number of Head Injuries by Age Group and Sex",
     width=600,
