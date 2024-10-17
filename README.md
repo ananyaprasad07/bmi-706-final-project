@@ -1,4 +1,4 @@
-# Visualizing Head Injuries across the United States
+# Visualizing Head Injuries in the United States
 
 #### Authors
 Ananya Prasad, Lanxin Zhang
