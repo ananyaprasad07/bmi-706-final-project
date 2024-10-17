@@ -2,7 +2,6 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-
 neiss = pd.read_csv('neiss_head_injuries.tsv', sep='\t')
 
 st.write("## Head Injuries Across the United States")
