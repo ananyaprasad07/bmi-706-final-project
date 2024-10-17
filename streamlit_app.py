@@ -139,7 +139,7 @@ subset_p3 = neiss[(neiss["Location"].isin(locations) & neiss["Year"]==year)]
 chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
     x=alt.X("Month:N"),
     y=alt.Y("Location:N"),
-    color=color=alt.Color("Disposition:Q", title="Severity Score of Injury", 
+    color=alt.Color("Disposition:Q", title="Severity Score of Injury", 
                           scale=alt.Scale(domain=[1, 6]))
 ,
     tooltip=["Disposition"],
