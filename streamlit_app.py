@@ -160,11 +160,9 @@ chart_p3 = alt.Chart(subset_p3).mark_rect().encode(
         scale=alt.Scale(
             domain=disposition_domain
         ),
-        legend=alt.Legend(
-            values=disposition_domain,
-            labelExpr="{'1': 'Treated, Released', '2': 'Treated, Transferred', 
-                        '3': 'Treated, Admitted', '4': 'Held', 
-                        '5': 'Left Against Medical Advice', '6': 'Other'}[datum.label]"
+    legend=alt.Legend(
+            values=disposition_domain, 
+            labelExpr="{'1': 'Treated, Released', '2': 'Treated, Transferred', '3': 'Treated, Admitted', '4': 'Held', '5': 'Left Against Medical Advice', '6': 'Other'}[datum.label]"  # Custom labels
         )
     ),
     tooltip=["Disposition:N"]  
